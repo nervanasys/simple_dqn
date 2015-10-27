@@ -50,7 +50,7 @@ class DeepQNetwork:
     self.train_iterations = 0
     if self.target_steps:
       self.target_model = Model(layers = self.createLayers(num_actions))
-      self.target_model.initialize(self.tensor.shape)
+      self.target_model.initialize(self.tensor.shape[:-1])
       self.save_weights_path = args.save_weights_path
     else:
       self.target_model = self.model
