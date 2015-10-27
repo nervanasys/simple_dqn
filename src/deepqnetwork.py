@@ -40,7 +40,7 @@ class DeepQNetwork:
     layers = self.createLayers(num_actions)
     self.model = Model(layers = layers)
     self.cost = GeneralizedCost(costfunc = SumSquared())
-    self.model.initialize(self.tensor.shape, self.cost)
+    self.model.initialize(self.tensor.shape[:-1], self.cost)
     self.optimizer = RMSProp(learning_rate = args.learning_rate, 
         decay_rate = args.rmsprop_decay_rate, 
         stochastic_round = args.stochastic_round)
